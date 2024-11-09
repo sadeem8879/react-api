@@ -16,7 +16,8 @@ function App() {
   const [filteredsearch,setfilteredsearch]=useState([]);
   const apikey=process.env.REACT_APP_API_KEY;
   useEffect(() => { 
-    axios.get(`https://newsapi.org/v2/everything?q=tesla&from=2024-08-16&sortBy=publishedAt&apiKey=${apikey}`)
+    axios.get(`
+https://newsapi.org/v2/everything?q=tesla&from=2024-10-09&sortBy=publishedAt&apiKey=${apikey}`)
       // axios.get('https://instagram-scraper-api3.p.rapidapi.com/similar_users_v2?username_or_id=therock')
     // axios.get('https://newsapi.org/v2/everything?q=apple&from=2024-09-11&to=2024-09-11&sortBy=popularity&apiKey=20445e53cbc1418cabe5a725fa4284eb')
 
@@ -79,6 +80,8 @@ function App() {
               : 'No description Available Here'
                 } */}
   {item.description ? (item.description.length > 100 ? item.description.slice(0, 100) + '...' : item.description)
+                      : 'No description available.'}      
+                      {item.title ? (item.title.length >20 ? item.title.slice(0, 10) + '...' : item.title)
                       : 'No description available.'}      
                   </Card.Text>
                   <div>
